@@ -27,7 +27,7 @@ project=${PWD##*/}
   docker rm fx-${project}
   docker run -it --name fx-${project} \
     -e HUBOT_CHATWORK_TOKEN=$CHATWORK_KEY \
-    -e HUBOT_CHATWORK_ROOMS="79818340" \
+    -e HUBOT_CHATWORK_ROOMS=$CHATWORK_ROOMS \
     -e HUBOT_CHATWORK_API_RATE="500" \
     -e DOCOMO_DIALOGUE_KEY=$DOCOMO_DIALOGUE_KEY \
     -e DOCOMO_QA_KEY=$DOCOMO_QA_KEY \
