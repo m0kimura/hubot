@@ -1,0 +1,13 @@
+#!/bin/bash
+filename="$HOME/hubot-project/.userenv"
+##
+  if [[ -e $filename ]]; then
+    while read line; do
+      if [[ ${line} != '' ]]; then
+        export ${line}
+      fi
+    done < ${filename}
+  else
+    cp /usr/src/.userenv $filename
+  fi
+##

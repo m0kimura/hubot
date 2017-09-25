@@ -1,0 +1,5 @@
+#!/bin/bash
+##
+#    forever start -c coffee ./node_modules/.bin/hubot -a chatwork -n BotKmrweb
+    coffee ./node_modules/.bin/hubot -a chatwork -n bot
+##

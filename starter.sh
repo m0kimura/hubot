@@ -1,20 +1,26 @@
 #!/bin/bash
 ##
-  if [[ -e hubot-project ]]; then
+  source xsSetenv
+  if [[ -e hubot-project/bin ]]; then
     cd hubot-project
   else
-    mkdir hubot-project
+    sudo chown $USER:$USER hubot-project
     cd hubot-project
-    npm install cron --save
-    npm install hubot-chatwork --save
-    npm install hubot-line --save
   fi
 ##
   if [[ -e ./bin/hubot ]]; then
-#    forever start -c coffee ./node_modules/.bin/hubot -a chatwork -n BotKmrweb
-    coffee ./node_modules/.bin/hubot -a chatwork -n bot
+    xsStart
     /bin/bash
   else
     yo hubot
+    npm install cron --save
+    npm install ke-docomo --save
+    npm install ke-recruit --save
+    npm install ke-utility --save
+    cp /usr/src/docomo.js ./scripts/docomo.js
+    cp /usr/src/recruit.js ./scripts/recruit.js
+    cp /usr/src/external-scripts.json ./external-scripts.json
+    rm ./hubot-scripts.json
+    /bin/bash
   fi
 ##
